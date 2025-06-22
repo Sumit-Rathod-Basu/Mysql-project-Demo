@@ -11,7 +11,7 @@ public class Comman
          try 
           {
            Class.forName("com.mysql.cj.jdbc.Driver");
-			con =DriverManager.getConnection("jdbc:mysql://localhost:3306/student_info","root","admin");
+			     con =DriverManager.getConnection("jdbc:mysql://localhost:3306/student_info","root","admin");
            }
             catch (Exception e) 
            {

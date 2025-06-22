@@ -12,7 +12,7 @@ public class MysqlProjectApplication
 		 a1 =new MysqlProjectApplication();   
 		 do
 		{
-			System.out.println("\n\n1.read\n 2.write\n 3.exit");
+			System.out.println("\n\n1.read\n 2.write\n 3.exit \n 4.update \n 5.delete");
 			System.out.println("Enter Your Choice:");
 			 ch =sc.nextInt();
 			switch(ch)
@@ -22,6 +22,10 @@ public class MysqlProjectApplication
 				case 2:a1.write();
 				     break;
 				case 3:System.out.println("thanks for using my software");	
+				     break;
+			   case 4:a1.Update();
+				     break;
+				case 5:a1.delete();
 				     break;
 				default:System.out.println("invalid choice..");	  	 
 			}
@@ -78,5 +82,39 @@ public class MysqlProjectApplication
 		  }
 
 	}
+	public void Update()
+	{
+		try 
+		{
+			System.out.println("Enter the ID of the name to be changed:");
+            int id = sc.nextInt();
 
+            System.out.println("Enter the new name:")
+
+            String newName = sc.next();
+
+			ps = Comman.con().prepareStatement("update demo set name=? where id=?");
+			ps.setString(1, newName);
+			ps.setInt(2,id);
+			ps.executeUpdate();
+		} catch (Exception e) 
+		{
+			System.out.println("Error:"+e);
+		}
+	}
+  public void delete()
+  {
+	try 
+	{
+		ps=Comman.con().prepareStatement("delete from demo where id =?");
+		System.out.println("Enter the id to delete the data:");
+		int id=sc.nextInt();
+		ps.setInt(1, id);
+		ps.executeUpdate();
+		System.out.println("data are deleted ...");
+	} catch (Exception e) 
+	{
+		System.out.println("Exception:"+e);
+	}
+  }
 }
