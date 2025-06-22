@@ -89,7 +89,7 @@ public class MysqlProjectApplication
 			System.out.println("Enter the ID of the name to be changed:");
             int id = sc.nextInt();
 
-            System.out.println("Enter the new name:")
+            System.out.println("Enter the new name:");
 
             String newName = sc.next();
 
